@@ -1,4 +1,4 @@
-import json, os
+import json, os, sys
 
 def load_data(filepath):
     with open(filepath, 'r') as file:
@@ -11,10 +11,14 @@ def create_pretty_print_json(json_data):
 
 
 if __name__ == '__main__':
-    filename = input('Введите имя файла: ')
+    try:
+        filename = sys.argv[1]
+    except IndexError:
+        print('No argument get')
+        sys.exit()
     if os.path.exists(filename):
         pretty_json = create_pretty_print_json(load_data(filename))
         print(pretty_json)
     else:
-        print('Файл не существует')
+        print('File is not exists')
 
