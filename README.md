@@ -1,6 +1,6 @@
 # Prettify JSON
 
-This script transform json data from input file path to pretty json format for print. 
+This script transforms json data from input file path to pretty json format for print. 
 
 # Quickstart
 
