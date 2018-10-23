@@ -1,19 +1,18 @@
-# Prettify JSON
+# Форматирование JSON
 
-This script transforms json data from input file path to pretty json format for print. 
+Скрипт получает данные из укаазнного файла в формате json и преобразует для дальнейшего вывода в удобном формате.
 
-# Quickstart
+# Запуск скрипта
 
-To launch you need installed Python 3.5 and PyPi. The script uses standart libraries os and json. The script validates that input data is not None and that file is exists.
+Скрипт pprint_json.py запускается с одним обязательным аргументом - путем к файлу с данными в формате json.
 
-Example of script launch on Linux, Python 3.5:
+Код запуска скрипта из терминала Linux, с интерпретатором Python 3.5:
 
 ```bash
-
 $ python pprint_json.py <path to file>
-
 ```
 
-# Project Goals
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+# Цели проекта
+
+Код написан в целях обучения. Учебный курс web-разработки - [DEVMAN.org](https://devman.org)
