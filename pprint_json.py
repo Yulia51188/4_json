@@ -1,13 +1,9 @@
 import json, os, sys
 
-def load_data(filepath):
+def create_formated_json_from_file(filepath):
     with open(filepath, 'r') as file:
-        yield json.loads(file.read())
-
-
-def create_formated_json(data_list):
-    formated_json_data = json.dumps(data_list, ensure_ascii=False, sort_keys=True, indent=4)
-    return formated_json_data
+        data = json.loads(file.read())
+    return json.dumps(data, ensure_ascii=False, sort_keys=True, indent=4)
 
 
 if __name__ == '__main__':
@@ -16,7 +12,9 @@ if __name__ == '__main__':
     except IndexError:
         sys.exit('No argument received')
     if os.path.exists(filename):
-        print(create_formated_json(list(load_data(filename))))
+        try:
+            print(create_formated_json_from_file(filename))
+        except ValueError:
+            sys.exit('Data in the file is not json')
     else:
-        print('File is not exists')
-
+        sys.exit('File is not exists')
