@@ -14,8 +14,7 @@ if __name__ == '__main__':
     try:
         filename = sys.argv[1]
     except IndexError:
-        print('No argument get')
-        sys.exit()
+        sys.exit('No argument received')
     if os.path.exists(filename):
         print(create_formated_json(list(load_data(filename))))
     else:
