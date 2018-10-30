@@ -1,9 +1,11 @@
 import json, os, sys
 
+
 def create_formated_json_from_file(filepath):
     with open(filepath, 'r') as file:
-        data = json.loads(file.read())
-    return json.dumps(data, ensure_ascii=False, sort_keys=True, indent=4)
+        python_object = json.loads(file.read())
+    return json.dumps(python_object, ensure_ascii=False,
+                        sort_keys=True, indent=4)
 
 
 if __name__ == '__main__':
