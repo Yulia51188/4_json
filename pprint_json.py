@@ -13,10 +13,9 @@ if __name__ == '__main__':
         filename = sys.argv[1]
     except IndexError:
         sys.exit('No argument received')
-    if os.path.exists(filename):
-        try:
-            print(create_formated_json_from_file(filename))
-        except ValueError:
-            sys.exit('Data in the file is not json')
-    else:
-        sys.exit('File is not exists')
+    if not os.path.exists(filename):
+        sys.exit ( 'File is not exists' )
+    try:
+        print(create_formated_json_from_file(filename))
+    except ValueError:
+        sys.exit('Data in the file is not json')
