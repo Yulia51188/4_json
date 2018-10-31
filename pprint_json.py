@@ -1,7 +1,9 @@
-import json, os, sys
+import json
+import os
+import sys
 
 
-def read_json_from_file(filepath):
+def load_python_object_from_file(filepath):
     with open(filepath, 'r') as file:
         str_data = file.read()
     try:
@@ -10,6 +12,7 @@ def read_json_from_file(filepath):
     except ValueError:
         return None
 
+
 def get_formatted_json(python_object):
     return json.dumps(python_object, ensure_ascii=False,
                       sort_keys=True, indent=4)
@@ -17,11 +20,11 @@ def get_formatted_json(python_object):
 
 if __name__ == '__main__':
     if not len(sys.argv) > 1:
-        sys.exit('No argument received')
+        exit('No argument received')
     filename = sys.argv[1]
     if not os.path.exists(filename):
-        sys.exit('File is not exists')
-    python_object = read_json_from_file(filename)
+        exit('File is not exists')
+    python_object = load_python_object_from_file((filename))
     if python_object is None:
-        sys.exit('Data in the file is not json or file is empty')
+        exit('Data in the file is not json or file is empty')
     print(get_formatted_json(python_object))
